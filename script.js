@@ -7,7 +7,7 @@ const apiSelector = document.getElementById("api-selector");
 
 let currentStyle = "";
 let total_images = 1;
-let apiType = 'rapidapi'; // Default API type
+let apiType = 'huggingface'; // Default API type
 
 // Update selected API type
 apiSelector.addEventListener('change', (event) => {
