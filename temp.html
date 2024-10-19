@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generated Images</h1>
+    <div class="image-container" id="image-container"></div>
+
+    <script>
+        const API_URL = "https://api-inference.huggingface.co/models/XLabs-AI/flux-RealismLora";
+        const headers = {
+            "Authorization": "Bearer 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",
+            "Content-Type": "application/json"
+        };
+
+        const prompts = [
+            "A retro-futuristic alien grocery store, filled with bizarre and colorful fruits that defy gravity, floating in mid-air. The alien cashier has three eyes and wears a vintage 1950s apron, while a small, robotic pet hovers around them, picking up items with its tiny claws.",
+            "A colossal, glowing jellyfish floating serenely above a calm desert at night. The sand dunes shimmer with bioluminescent colors reflecting from the jellyfish, and in the distance, a solitary figure on a camel watches in awe, bathed in a gentle, ethereal light.",
+            "An intricate steampunk-inspired cathedral where the stained glass windows are replaced with giant, rotating clock faces. Gears and cogs fill the aisles, turning slowly, and instead of a choir, mechanical birds perch on wires, chirping in synchronized harmony.",
+            "A minimalist scene of a single dandelion growing out of a floating chunk of earth in the middle of a vast ocean. The sky above is filled with hundreds of paper airplanes gently gliding in all directions, each carrying tiny handwritten notes tied with red string.",
+            "A post-apocalyptic landscape where a vintage ice cream truck, covered in vines and moss, sits atop a skyscraper. A rainbow forms in the cloudy sky behind it, while an old radio antenna plays a soft, crackling melody to a group of mutated pigeons with vibrant, iridescent feathers.",
+            "A celestial garden floating in deep space, filled with giant, glowing cosmic flowers that bloom in a spectrum of colors never seen on Earth. Each petal appears to be made of shimmering nebulae, with tiny galaxies swirling inside them. The stems of the flowers are translucent, pulsing with radiant energy, and they grow from a platform of crystalline minerals suspended in the void. A gentle mist of stardust drifts through the air, and ethereal butterfly-like creatures with wings made of stardust and light dance around the flowers.",
+            "An ethereal realm known as the Dream Weaver’s Domain, where the fabric of reality appears fluid and ever-changing. In this space, colossal, semi-transparent webs stretch across an infinite void, with the threads woven from liquid light and flowing shadow. On these webs, glowing orbs that contain surreal, ever-shifting dreamscapes float and pulsate. The Dream Weaver, a humanoid figure with an amorphous body made of threads of light and darkness, gently manipulates the webs, crafting new dreams with a touch. A river of time, composed of liquid silver, winds through the domain, reflecting distorted glimpses of past, present, and future.",
+            "A city built on floating islands that drift through a sea of thick, luminous mist. The buildings are crafted entirely from glass that reflects every hue of the sunset, giving the city a kaleidoscopic appearance. Bridges of translucent crystal connect the islands, with streams of liquid light flowing underneath them. In the sky, massive, slow-moving clouds are filled with sparkling particles that rain down like glittering confetti. The inhabitants are spectral beings made of refracted light, moving gracefully through the city, their forms shifting in color and shape as they pass through the glass structures.",
+            "An endless, circular library that spirals upwards into infinity, with shelves that hold books bound in materials that resemble living skin, liquid metal, and crystallized thought. Each book glows faintly with a different color and emits a soft hum, as if whispering secrets to those who approach. The air is filled with floating quills writing on their own, and spectral librarians with elongated limbs and faces without features glide silently between the shelves, organizing tomes that seem to shift locations on their own. Above, a ceiling of swirling galaxies casts a gentle, ever-shifting light across the library.",
+            "A massive well suspended in the sky, from which pours a continuous waterfall of liquid color. The water changes from deep indigos to vibrant pinks, flowing into an endless void below, creating a mesmerizing rainbow spectrum. Strange crystalline formations grow on the edges of the well, shaped like impossible geometries that defy conventional physics. Around the well, giant, translucent jellyfish-like creatures with tendrils made of light and color swim gracefully, feeding on the chromatic rain. The sky around the well is a gradient of shifting colors, punctuated by bursts of lightning that appear as fractal patterns."
+        ];
+
+        async function fetchImages() {
+            const container = document.getElementById('image-container');
+            for (let i = 0; i < prompts.length; i++) {
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: headers,
+                        body: JSON.stringify({
+                            inputs: prompts[i],
+                            parameters: { width: 1152, height: 896 }
+                        })
+                    });
+
+                    const blob = await response.blob();
+                    const url = URL.createObjectURL(blob);
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = `Generated image ${i + 1}`;
+                    container.appendChild(img);
+                } catch (error) {
+                    console.error('Error fetching image:', error);
+                }
+            }
+        }
+
+        // Fetch and display images when the page loads
+        window.onload = fetchImages;
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="input">
+            <input type="text" name="prompt" id="prompt" placeholder="Imagine....">
+            <select id="api-selector">
+                <option value="huggingface">Hugging Face</option>
+                <option value="rapidapi">RapidAPI</option>
+            </select>
+            <button id="generate">Generate</button>
+        </div>
+        <div class="stylesContainer">
+            <div class="styles active">
+                <img src="./forbidden.png" alt="Photographic"
+                    style="height: 45px;background-color: rgb(229, 231, 235);padding: 20px;">
+                <p>None</p>
+            </div>
+            <div class="styles">
+                <img src="./photography.e48bdcc6.png" alt="Photographic">
+                <p>Photographic</p>
+            </div>
+            <div class="styles">
+                <img src="./anime.5f9d9e65.png" alt="Anime">
+                <p>Anime</p>
+            </div>
+            <div class="styles">
+                <img src="./fantasy_art.bfeae171.png" alt="Fantasy Art">
+                <p>Fantasy Art</p>
+            </div>
+            <div class="styles">
+                <img src="./line_art.4b475d14.png" alt="Line Art">
+                <p>Line Art</p>
+            </div>
+            <div class="styles">
+                <img src="./3D_model.367cf3c5.png" alt="3D Model">
+                <p>3D Model</p>
+            </div>
+            <div class="styles">
+                <img src="./neonpunk.d5daaeb2.png" alt="Neopunk">
+                <p>Neopunk</p>
+            </div>
+            <div class="styles">
+                <img src="./comic.e06aaa2a.png" alt="Comic Book">
+                <p>Comic Book</p>
+            </div>
+            <div class="styles">
+                <img src="./digital_art.59ada2f0.png" alt="Digital Art">
+                <p>Digital Art</p>
+            </div>
+            <div class="styles">
+                <img src="./cinematic.65fef1f3.png" alt="Cinematic">
+                <p>Cinematic</p>
+            </div>
+            <div class="styles">
+                <img src="./Low_Poly.d8f23825.png" alt="Low Poly">
+                <p>Low Poly</p>
+            </div>
+            <div class="styles">
+                <img src="./Isometric.08f35d47.png" alt="Isometric">
+                <p>Isometric</p>
+            </div>
+            <div class="styles">
+                <img src="./disney_pixar.webp" alt="Isometric">
+                <p>Disney Pixar</p>
+            </div>
+
+        </div>
+        <div class="output hidden">
+            <!-- Images will be added here dynamically -->
+        </div>
+        <div class="settings">
+            <p class="settingsText">Choose the number of images</p>
+            <div>
+                <button class="resolution active">1</button>
+                <button class="resolution">2</button>
+                <button class="resolution">3</button>
+                <button class="resolution">4</button>
+                <button class="resolution">5</button>
+                <button class="resolution">6</button>
+                <button class="resolution">7</button>
+                <button class="resolution">8</button>
+                <button class="resolution">9</button>
+                <button class="resolution">10</button>
+                <button class="resolution">11</button>
+                <button class="resolution">12</button>
+                <button class="resolution">13</button>
+                <button class="resolution">14</button>
+            </div>
+        </div>
+        <button title="Back" class="backBtn hidden">Back</button>
+    </div>
+    <script src="https://kit.fontawesome.com/6c7cdd141d.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

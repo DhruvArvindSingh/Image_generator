@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.container {
+    height: 680px;
+    width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(28, 28, 69);
+    padding: 20px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 95%;
+    margin: 0;
+    width: 500px
+}
+
+.input input {
+    height: 50px;
+    /* width: ; */
+    flex: 1;
+    border-radius: 5px;
+    border: none;
+    font-size: medium;
+    background-color: rgba(143, 41, 239, 0.238);
+    margin-right: 5px;
+}
+
+#generate {
+    height: 50px;
+    border: none;
+    background-color: rgba(143, 41, 239, 0.238);
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    padding: 5px 10px 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s;
+}
+
+#generate:hover {
+    box-shadow: 0px 0px 5px black;
+}
+
+.output {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    overflow-y: scroll;
+    flex: 1;
+    /* justify-content: center; Centers grid items horizontally */
+    /* align-content: center; Centers grid items vertically */
+    /* min-height: 100vh; */
+
+}
+
+.output::-webkit-scrollbar {
+    display: none;
+}
+
+.resolution {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    border: none;
+    background-color: rgba(143, 41, 239, 0.238);
+    border-radius: 5px;
+    color: white;
+}
+
+.settings {
+    width: 500px;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 17px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-image {
+    display: block;
+}
+
+
+.icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    margin: 5px;
+}
+
+.image {
+    background: #eee4fe;
+    background-size: cover;
+    width: 180px;
+    
+    /* height: 230px; */
+    margin: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.image:hover .icon {
+    opacity: 1;
+}
+
+.enlarged {
+    width: 360px;
+    height: 460px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.small {
+    width: 36px;
+    height: 46px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.hidden {
+    display: none;
+}
+
+.video {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+}
+
+.stylesContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px;
+    /* height: 320px; */
+    width: 500px;
+    text-align: center;
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+.stylesContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.styles {
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    /* width: 85px; */
+    flex-direction: column;
+    margin: none;
+}
+.styles img{
+    height: 85px;
+    /* width: 87px; */
+    border-radius: 5px;
+}
+.styles p {
+    margin: -18.3px 0 0 0;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    font-style: normal;
+    background-color: rgba(0, 0, 0, 0.497);
+    width: 85px;
+    border-radius: 0px 0px 5px 5px;
+
+    /* height: 12px; */
+    text-align: center;
+}
+#api-selector{
+    height: 50px;
+    border: none;
+    background-color:rgba(143, 41, 239, 0.238);
+    margin-right: 5px;
+    border-radius: 5px;
+    color: white;
+    font-family: "Poppins" ,sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+}
+#api-selector dt a{
+    color: blue;
+}
+
+.active{
+    border: 3px solid red;
+}
+.backBtn{
+    height: 50px;
+    width: 75px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: medium;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    background-color: rgba(143, 41, 239, 0.238);
+}
